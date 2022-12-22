@@ -1,7 +1,8 @@
 @extends("blank")
 
 @section("konten")
-    <a class="btn btn-primary" href="{{route('buat_galeri')}}">Add</a>
+
+    <a class="btn btn-primary" href="{{route('buat_lomba')}}">Add</a>
 
     <h1>Semua Data</h1>
     <table class="table">
@@ -9,29 +10,24 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Nama</th>
-            <th scope="col">Lomba</th>
+            <th scope="col">Informasi</th>
+            <th scope="col">Kategori</th>
             <th scope="col">Create At</th>
             <th scope="col">Updated At</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($data as $galeri)
+        @foreach($data as $lomba)
             <tr>
-                <th scope="row">{{$galeri->id}}</th>
-                <td>{{$galeri->galeri}}</td>
-                <td>{{$galeri->lomba->lomba}}</td>
-                <td>{{$galeri->created_at}}</td>
-                <td>{{$galeri->updated_at}}</td>
+                <th scope="row">{{$lomba->id}}</th>
+                <td>{{$lomba->lomba}}</td>
+                <td>{{$lomba->informasi}}</td>
+                <td>{{$lomba->kategori->nama}}</td>
+                <td>{{$lomba->created_at}}</td>
+                <td>{{$lomba->updated_at}}</td>
                 <td>
-                    <a href="{{ route('ubah_galeri', ['id' => $galeri->id]) }}">Ubah</a>
-                    <a href="{{ route('tampil_galeri', ['id' => $galeri->id]) }}">Tampil</a>
-
-                    <form action="{{ route('hapus_galeri', ['id' => $galeri->id]) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <button type="submit">Hapus</button>
-                    </form>
+                    <a href="{{ route('tampil_galeri', ['lomba_id' => $lomba->id]) }}">Galeri</a>
             </tr>
         @endforeach
         </tbody>

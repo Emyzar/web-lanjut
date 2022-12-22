@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\galeri_lomba;
 use Illuminate\Http\Request;
 use App\Models\galeri_lomba as GaleriLomba;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +16,7 @@ class GaleriLombaController extends Controller
         return view("user.galeri.form-input", compact('lomba'));
     }
 
-    public function simpan(Request $request)
+    public function simpan(Request $request, $lomba_id)
     {
         // dd($request->image->getClientOriginalName());
         // Storage::disk('local')->putFileAs('public', $request->galeri, 'test.png');
@@ -29,15 +30,15 @@ class GaleriLombaController extends Controller
         return redirect(route("tampil_galeri", ['id' => $galeri->id]));
     }
 
-    public function tampil($id)
+    public function tampil($lomba_id)
     {
-        $galeri = GaleriLomba::find($id);
+        $galeri = GaleriLomba::where('lomba_id', $lomba_id)->get();
         return view("user.galeri.tampil")->with("galeri", $galeri);
     }
 
     public function semua()
     {
-        $data = GaleriLomba::all();
+        $data = lomba::all();
         return view("user.galeri.semua")->with("data", $data);
     }
 

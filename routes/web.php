@@ -41,9 +41,9 @@ Route::middleware("auth")->group(function() {
     Route::put("lomba/update/{id}", [LombaController::class, 'update'])->name("update_lomba");
     Route::delete("lomba/hapus/{id}", [LombaController::class, 'hapus'])->name("hapus_lomba");
 
-    Route::get("galeri/buat", [GaleriLombaController::class, 'buat'])->name("buat_galeri");
-    Route::post("galeri/simpan", [GaleriLombaController::class, 'simpan'])->name("simpan_galeri");
-    Route::get("galeri/tampil/{id}", [GaleriLombaController::class, 'tampil'])->name("tampil_galeri");
+    Route::get("galeri/buat/{lomba_id}", [GaleriLombaController::class, 'buat'])->name("buat_galeri");
+    Route::post("galeri/simpan/{lomba_id}", [GaleriLombaController::class, 'simpan'])->name("simpan_galeri");
+    Route::get("galeri/tampil/{lomba_id}", [GaleriLombaController::class, 'tampil'])->name("tampil_galeri");
     Route::get("galeri/semua", [GaleriLombaController::class, 'semua'])->name("semua_galeri");
     Route::get("galeri/ubah/{id}", [GaleriLombaController::class, 'ubah'])->name("ubah_galeri");
     Route::put("galeri/update/{id}", [GaleriLombaController::class, 'update'])->name("update_galeri");
