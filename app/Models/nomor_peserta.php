@@ -9,10 +9,11 @@ class nomor_peserta extends Model
 {
     use HasFactory;
     protected $table = "nomor_peserta";
+    protected $guarded = [];
 
     public function lomba()
     {
-        return $this->belongsTo(lomba::class);
+        return $this->belongsTo(lomba::class, 'lomba_id');
     }
 
     public function peserta()

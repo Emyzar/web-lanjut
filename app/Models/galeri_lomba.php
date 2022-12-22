@@ -12,6 +12,6 @@ class galeri_lomba extends Model
 
     public function lomba()
     {
-        return $this->hasMany(lomba::class);
+        return $this->belongsTo(lomba::class, 'lomba_id');
     }
 }

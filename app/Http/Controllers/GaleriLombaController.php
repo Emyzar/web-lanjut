@@ -23,9 +23,10 @@ class GaleriLombaController extends Controller
         // $link = Storage::link($path);
         $galeri = new GaleriLomba();
         $galeri->galeri = $request->image->getClientOriginalName();
+        $galeri->lomba_id = $request->lomba;
         $galeri->save();
 
-        return redirect(route("tampil_galeri_lomba", ['id' => $galeri->id]));
+        return redirect(route("tampil_galeri", ['id' => $galeri->id]));
     }
 
     public function tampil($id)

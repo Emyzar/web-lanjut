@@ -10,7 +10,7 @@ use App\Http\Controllers\GaleriLombaController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get("/tampil-user", [UserController::class, "tampil"] )->name("tampil-user");
 Route::get("/input-user", [UserController::class, "form_user"] )->name("user_input");
@@ -56,6 +56,10 @@ Route::middleware("auth")->group(function() {
     Route::get("nomor_peserta/ubah/{id}", [NomorPesertaController::class, 'ubah'])->name("ubah_nomor_peserta");
     Route::put("nomor_peserta/update/{id}", [NomorPesertaController::class, 'update'])->name("update_nomor_peserta");
     Route::delete("nomor_peserta/hapus/{id}", [NomorPesertaController::class, 'hapus'])->name("hapus_nomor_peserta");
+
+    Route::post('daftar_lomba/daftar/{lomba_id}', [\App\Http\Controllers\DaftarLombaController::class, 'daftar_lomba'])->name('daftar_lomba_daftar');
+    Route::get('daftar_lomba/daftar/{lomba_id}', [\App\Http\Controllers\DaftarLombaController::class, 'form_daftar_lomba'])->name('daftar_lomba_get');
+    Route::get('daftar_lomba/', [\App\Http\Controllers\DaftarLombaController::class, 'index'])->name('daftar_lomba_index');
 });
 
 

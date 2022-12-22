@@ -36,7 +36,5 @@
   @endforeach
   </tbody>
 </table>
-<hr>
-@include("menu")
 
 @endsection

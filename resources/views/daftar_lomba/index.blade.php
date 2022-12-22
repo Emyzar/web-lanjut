@@ -1,9 +1,6 @@
 @extends("blank")
 
 @section("konten")
-
-    <a class="btn btn-primary" href="{{route('buat_lomba')}}">Add</a>
-
     <h1>Semua Data</h1>
     <table class="table">
         <thead>
@@ -27,14 +24,14 @@
                 <td>{{$lomba->created_at}}</td>
                 <td>{{$lomba->updated_at}}</td>
                 <td>
-                    <a href="{{ route('ubah_lomba', ['id' => $lomba->id]) }}">Ubah</a>
-                    <a href="{{ route('tampil_lomba', ['id' => $lomba->id]) }}">Tampil</a>
+                    <a href="{{ route('ubah_lomba', ['id' => $lomba->id]) }}">Daftar Lomba</a>
+{{--                    <a href="{{ route('tampil_lomba', ['id' => $lomba->id]) }}">Tampil</a>--}}
 
-                    <form action="{{ route('hapus_lomba', ['id' => $lomba->id]) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <button type="submit">Hapus</button>
-                    </form>
+{{--                    <form action="{{ route('hapus_lomba', ['id' => $lomba->id]) }}" method="post">--}}
+{{--                        @csrf--}}
+{{--                        @method('delete')--}}
+{{--                        <button type="submit">Hapus</button>--}}
+{{--                    </form>--}}
             </tr>
         @endforeach
         </tbody>

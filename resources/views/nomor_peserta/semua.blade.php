@@ -7,7 +7,7 @@
     @foreach($data as $nomor_peserta)
         Nama : {{ $nomor_peserta->peserta->name }} <br>
         Nomor: {{ $nomor_peserta->nomor }} <br>
-        Lomba: {{ $nomor_peserta->lomba->lomba }} <br>
+        Lomba: {{ $nomor_peserta->lomba }} <br>
         <a href="{{ route('ubah_nomor_peserta', ['id' => $nomor_peserta->id]) }}">Ubah</a>
         <a href="{{ route('tampil_nomor_peserta', ['id' => $nomor_peserta->id]) }}">Tampil</a>
 
