@@ -1,7 +1,7 @@
 @extends("blank")
 
 @section("konten")
-    <a class="btn btn-primary" href="{{route('buat_galeri')}}">Add</a>
+    <a class="btn btn-primary" href="{{route('buat_galeri', $lomba_id)}}">Add</a>
     <div class="row">
         @foreach($galeri as $item)
             <img src="{{asset('image').'/'.$item->galeri}}" class="col-2 img-thumbnail">

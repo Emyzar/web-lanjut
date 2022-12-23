@@ -10,10 +10,10 @@ use App\Models\lomba;
 
 class GaleriLombaController extends Controller
 {
-    public function buat()
+    public function buat($lomba_id)
     {
         $lomba=lomba::all();
-        return view("user.galeri.form-input", compact('lomba'));
+        return view("user.galeri.form-input")->with("lomba_id", $lomba_id)->with("lomba", $lomba);
     }
 
     public function simpan(Request $request, $lomba_id)
@@ -27,13 +27,13 @@ class GaleriLombaController extends Controller
         $galeri->lomba_id = $request->lomba;
         $galeri->save();
 
-        return redirect(route("tampil_galeri", ['id' => $galeri->id]));
+        return redirect(route("tampil_galeri", ['lomba_id' => $lomba_id]));
     }
 
     public function tampil($lomba_id)
     {
         $galeri = GaleriLomba::where('lomba_id', $lomba_id)->get();
-        return view("user.galeri.tampil")->with("galeri", $galeri);
+        return view("user.galeri.tampil")->with("galeri", $galeri)->with("lomba_id", $lomba_id);
     }
 
     public function semua()

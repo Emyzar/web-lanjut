@@ -24,7 +24,7 @@
                 <td>{{$lomba->created_at}}</td>
                 <td>{{$lomba->updated_at}}</td>
                 <td>
-                    <a href="{{ route('ubah_lomba', ['id' => $lomba->id]) }}">Daftar Lomba</a>
+                    <a href="{{ route('daftar_lomba_get', ['lomba_id' => $lomba->id]) }}">Daftar Lomba</a>
 {{--                    <a href="{{ route('tampil_lomba', ['id' => $lomba->id]) }}">Tampil</a>--}}
 
 {{--                    <form action="{{ route('hapus_lomba', ['id' => $lomba->id]) }}" method="post">--}}

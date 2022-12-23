@@ -16,7 +16,12 @@ class DaftarLombaController extends Controller
 
     public function form_daftar_lomba($lomba_id)
     {
-        return view("daftar_lomba.form")->with('lomba_id', $lomba_id);
+        $nomor_peserta = nomor_peserta::where('user_id', auth()->user()->id)->where('lomba_id', $lomba_id)->firstOrFail();
+        if ($nomor_peserta) {
+            return view("daftar_lomba.form")->with('lomba_id', $lomba_id)->with('validasi', true)->with('nomor_peserta', $nomor_peserta);
+        } else {
+            return view("daftar_lomba.form")->with('lomba_id', $lomba_id)->with('validasi', false);
+        }
     }
 
     public function daftar_lomba(Request $request, $lomba_id){

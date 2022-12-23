@@ -2,7 +2,7 @@
 
 @section("konten")
 
-    <form action="{{ route('simpan_galeri') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('simpan_galeri', $lomba_id) }}" method="post" enctype="multipart/form-data">
         @csrf
 
         Galeri : <input type="file" name="image"> <br>
@@ -14,7 +14,7 @@
             </option>
             @endforeach
         </select>
-        
+
 
         <button type="submit">Simpan</button>
     </form>

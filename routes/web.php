@@ -60,6 +60,8 @@ Route::middleware("auth")->group(function() {
     Route::post('daftar_lomba/daftar/{lomba_id}', [\App\Http\Controllers\DaftarLombaController::class, 'daftar_lomba'])->name('daftar_lomba_daftar');
     Route::get('daftar_lomba/daftar/{lomba_id}', [\App\Http\Controllers\DaftarLombaController::class, 'form_daftar_lomba'])->name('daftar_lomba_get');
     Route::get('daftar_lomba/', [\App\Http\Controllers\DaftarLombaController::class, 'index'])->name('daftar_lomba_index');
+
+    Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 });
 
 
