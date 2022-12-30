@@ -28,7 +28,7 @@ class UserController extends Controller
     }
     public function user_simpan(ProjectRequest  $request) {
         $user = new User();
-        $user->name = $request->get("name");
+        $user->name = $request->get("nama");
         $user->username = $request->get("username");
         $user->email = $request->get("email");
         $user->password = $request->get("password");
