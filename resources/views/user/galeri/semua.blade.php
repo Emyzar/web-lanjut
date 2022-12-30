@@ -23,7 +23,7 @@
                 <th scope="row">{{$lomba->id}}</th>
                 <td>{{$lomba->lomba}}</td>
                 <td>{{$lomba->informasi}}</td>
-                <td>{{$lomba->kategori->nama}}</td>
+                <td>{{$lomba->kategori ? $lomba->kategori->nama : 'Data kategori kosong'}}</td>
                 <td>{{$lomba->created_at}}</td>
                 <td>{{$lomba->updated_at}}</td>
                 <td>

@@ -5,7 +5,7 @@
     <h1>Semua Data</h1>
 
     @foreach($data as $nomor_peserta)
-        Nama : {{ $nomor_peserta->peserta->name }} <br>
+        Nama : {{ $nomor_peserta->peserta ? $nomor_peserta->peserta->name : 'Data peserta kosong' }} <br>
         Nomor: {{ $nomor_peserta->nomor }} <br>
         Lomba: {{ $nomor_peserta->lomba }} <br>
         <a href="{{ route('ubah_nomor_peserta', ['id' => $nomor_peserta->id]) }}">Ubah</a>
